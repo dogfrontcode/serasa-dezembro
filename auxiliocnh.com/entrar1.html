@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Carteira Digital de Trânsito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/app/bootstrap.css">
+    <link rel="stylesheet" href="./css/app/app.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box-shadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #1351B4;
+            border: none;
+            border-radius: 24px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-cta:hover {
+            background: #370A69;
+        }
+
+        .invalid-feedback {
+            display: none;
+            color: #dc3545;
+            font-size: 0.875em;
+            margin-top: 0.25rem;
+        }
+
+        input.form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #1351B4;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-container {
+            width: 390px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="w-100 py-2 box-shadow px-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img src="./image/blue/logo.png" alt="Logo" width="110px">
+        </div>
+    </header>
+
+    <main class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="form-container">
+            <h5 class="text-dark font-weight-600 mb-4">Identifique-se no gov.br</h5>
+            <form id="cpf-form" onsubmit="validateAndSubmit(event)">
+                <div class="form-group">
+                    <label for="cpf" class="font-weight-bold">CPF</label>
+                    <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" onkeyup="formatCpf(this)" onblur="checkCpfValidity()">
+                    <span class="invalid-feedback">Informe um CPF válido.</span>
+                </div>
+                <button type="submit" class="btn-cta mt-3">Continuar</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Formata o CPF em tempo real
+        function formatCpf(element) {
+            let cpf = element.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+            cpf = cpf.substring(0, 11);
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+            cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            element.value = cpf;
+        }
+
+        // Valida o CPF
+        function validateCpf(cpf) {
+            cpf = cpf.replace(/\D/g, ""); // Remove caracteres não numéricos
+            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
+                return false; // Formato inválido ou números repetidos
+            }
+
+            // Validação dos dígitos verificadores
+            let sum = 0;
+            let remainder;
+
+            for (let i = 1; i <= 9; i++) {
+                sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+            }
+            remainder = (sum * 10) % 11;
+            if (remainder === 10 || remainder === 11) remainder = 0;
+            if (remainder !== parseInt(cpf.substring(9, 10))) return false;
+
+            sum = 0;
+            for (let i = 1; i <= 10; i++) {
+                sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+            }
+            remainder = (sum * 10) % 11;
+            if (remainder === 10 || remainder === 11) remainder = 0;
+            if (remainder !== parseInt(cpf.substring(10, 11))) return false;
+
+            return true;
+        }
+
+        // Verifica a validade do CPF e exibe mensagem de erro
+        function checkCpfValidity() {
+            const cpfInput = document.getElementById("cpf");
+            const feedback = document.querySelector(".invalid-feedback");
+            if (validateCpf(cpfInput.value)) {
+                feedback.style.display = "none";
+                cpfInput.classList.remove("is-invalid");
+            } else {
+                feedback.style.display = "block";
+                cpfInput.classList.add("is-invalid");
+            }
+        }
+
+        // Valida o CPF ao submeter o formulário
+        function validateAndSubmit(event) {
+            event.preventDefault();
+            const cpfInput = document.getElementById("cpf");
+            const feedback = document.querySelector(".invalid-feedback");
+
+            if (validateCpf(cpfInput.value)) {
+                feedback.style.display = "none";
+                cpfInput.classList.remove("is-invalid");
+                // Submeter o formulário ou redirecionar
+                console.log("CPF válido! Formulário enviado.");
+            } else {
+                feedback.style.display = "block";
+                cpfInput.classList.add("is-invalid");
+                console.log("CPF inválido! Corrija o CPF antes de continuar.");
+            }
+        }
+    </script>
+</body>
+
+</html>

